@@ -1,0 +1,95 @@
+body {
+    background-color: whitesmoke;
+}
+
+#main {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#main > h1 {
+    font-family: cursive;
+    text-decoration: underline;
+    text-align: center;
+}
+
+#input_form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#input_form > form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 25vw;
+}
+
+#sign_up_form {
+    margin-right: 1.5%;
+}
+
+#sign_in_form {
+    margin-left: 1.5%;
+}
+
+#input_form > form > div {
+    border-bottom: 3px solid black;
+    height: 2vh;
+}
+
+#input_form > form > h2 {
+    font-family: cursive;
+    text-decoration: underline;
+    text-align: center;
+}
+
+#input_form > form > label {
+    font-family: serif;
+    font-size: large;
+    margin-top: 5%;
+}
+
+#input_form > form > input, select {
+    padding: 10px 20px;
+    margin: 2%;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+button {
+    width: 100%;
+    background-color: green;
+    color: white;
+    padding: 10px 20px;
+    margin-top: 2%;
+    border: none;
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: large;
+}
+
+button:hover {
+    background-color: red;
+}
+
+#user_container {
+    display: flex;
+    flex-direction: column;
+}
+
+#user_container > span {
+    font-family: sans-serif;
+    margin-top: 2%;
+    margin-left: 3%;
+    font-size: x-large;
+    font-weight: bold;
+}
+
+#user_container > span > label {
+    font-family: cursive;
+    color: green;
+}

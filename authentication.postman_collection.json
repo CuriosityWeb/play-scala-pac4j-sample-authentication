@@ -1,0 +1,215 @@
+{
+	"info": {
+		"_postman_id": "0341c5cd-647e-448f-be5d-e35872143a54",
+		"name": "authentication",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}",
+					"host": [
+						"{{URL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/signup",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Csrf-Token",
+						"value": "{{csrfToken}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "abcd@abcd.abcd",
+							"type": "default"
+						},
+						{
+							"key": "firstName",
+							"value": "ABCDE",
+							"type": "default"
+						},
+						{
+							"key": "lastName",
+							"value": "",
+							"type": "default",
+							"disabled": true
+						},
+						{
+							"key": "dob",
+							"value": "1998-07-05",
+							"type": "default"
+						},
+						{
+							"key": "gender",
+							"value": "Male",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "123456789",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/signup",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"signup"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/api/me",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/api/me",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"api",
+						"me"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/callback?client_name=FormClient",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Csrf-Token",
+						"value": "{{csrfToken}}",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "email",
+							"value": "abcd@abcd.abcd",
+							"type": "default"
+						},
+						{
+							"key": "password",
+							"value": "123456789",
+							"type": "default"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{URL}}/callback?client_name=FormClient",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"callback"
+					],
+					"query": [
+						{
+							"key": "client_name",
+							"value": "FormClient"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "/signout",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{URL}}/signout",
+					"host": [
+						"{{URL}}"
+					],
+					"path": [
+						"signout"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"let csrfToken = pm.cookies.get(\"CSRF_TOKEN\");",
+					"pm.environment.set(\"csrfToken\", csrfToken);",
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "URL",
+			"value": "localhost:9001",
+			"type": "default"
+		},
+		{
+			"key": "Csrf-Token",
+			"value": "",
+			"type": "default"
+		}
+	]
+}

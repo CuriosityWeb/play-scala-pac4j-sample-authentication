@@ -1,0 +1,13 @@
+GET         /                      controllers.Assets.at(path = "/public", file = "index.html")
+
+POST        /signup                controllers.SignUpController.submit
+
+GET         /signin                controllers.SignInController.handleSignIn(error: Option[String])
+GET         /signin/success        controllers.SignInController.successSignIn()
+
+POST        /callback              @org.pac4j.play.CallbackController.callback(request: Request)
+GET         /signout               @org.pac4j.play.LogoutController.logout(request: Request)
+
+GET         /api/me                controllers.UserController.me
+
+GET         /assets/*file          controllers.Assets.versioned(path = "/public", file)
